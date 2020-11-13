@@ -11,14 +11,14 @@ const compression = require('compression')
 const zlib = require('zlib')
 
 // Express Additional Flags
-app.use(express.static(`public`))
-app.use(cookieParser())
-app.use(minify({
-    cache: 'cache',
-}))
 app.use(compression({
     level: zlib.Z_DEFAULT_COMPRESSION
 }))
+app.use(minify({
+    cache: 'cache',
+}))
+app.use(cookieParser())
+app.use(express.static(`public`))
 
 // Socket.io -- Optional
 const server = require('http').Server(app)
