@@ -10,18 +10,25 @@
     <link rel="stylesheet" href="/vendor/ichiharu/app.css">
 
     <!-- Third-party libraries -->
-    <script>
-        if (typeof module === 'object') { window.module = module; module = undefined; }; </script>
-    <link rel="stylesheet" href="/vendor/moji/moji.min.css">
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }; </script>
     <script src="/vendor/jquery/jquery.min.js"></script>
+
+    <script src="/vendor/turbolinks/turbolinks.js"></script>
+
+    <link rel="stylesheet" href="/vendor/nprogress/nprogress.css">
+    <script src="/vendor/nprogress/nprogress.js"></script>
+    <script src="/vendor/ichiharu/init.js"></script>
+    <script>
+        NProgress.start()
+    </script>
+
     <script defer src="/vendor/moji/navbar.js"></script>
-    <script defer src="/vendor/turbolinks/turbolinks.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+
+    <link rel="stylesheet" href="/vendor/moji/moji.min.css">
     {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.min.js"></script> --}}
     {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script> --}}
-    <script>
-        Turbolinks.start()
-    </script>
+    
     <script>if (window.module) module = window.module;</script>
 
     <link

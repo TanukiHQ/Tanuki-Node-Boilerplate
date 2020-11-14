@@ -14,10 +14,10 @@ const zlib = require('zlib')
 app.use(compression({
     level: zlib.Z_DEFAULT_COMPRESSION
 }))
-app.use(minify({
-    cache: 'cache',
-}))
-app.use(cookieParser())
+// app.use(minify({
+//     cache: 'cache',
+// }))
+// app.use(cookieParser())
 app.use(express.static(`public`))
 
 // Socket.io -- Optional
@@ -116,7 +116,7 @@ app.set('views', `views`)
 app.get('/', (req, res) => {
     var metadata = {
         meta: {
-            title: "404",
+            title: "Home",
             path: false
         },
         nav: {
