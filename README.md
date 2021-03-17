@@ -1,3 +1,5 @@
-# Web Template
-This repository contains the template for new Ichiharu apps.
-**Do not disseminate information. Contains closed-sourced code**
+# Hakkou App Template
+This repository is used for the base of every Hakkou web application.
+
+# License
+Please view [MPL-2.0](https://github.com/HakkouHQ/Hakkou-App-Template/blob/main/LICENSE)
