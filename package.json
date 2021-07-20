@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app",
     "watch": "nodemon app",
-    "lint": "eslint app.js"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "repository": {
     "type": "git",
