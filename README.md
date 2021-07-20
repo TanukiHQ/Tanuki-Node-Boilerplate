@@ -1,5 +1,5 @@
-# Hakkou App Template
-This repository is used for the base of every Hakkou web application.
+# Tanuki Node Boilerplate
+This repository is used for TanukiHQ and TanukiWorks projects. Now open-sourced!
 
-# License
-Please view [MPL-2.0](https://github.com/HakkouHQ/Hakkou-App-Template/blob/main/LICENSE)
+# Copyright
+Please view [MPL-2.0](https://github.com/TanukiHQ/Tanuki-Node-Boilerplate/blob/main/LICENSE).
