@@ -1,5 +1,5 @@
 // Load environment
-const config = require('./lib/config')
+const config = require('./app/config')
 
 // Express
 const express = require('express')
@@ -28,7 +28,7 @@ app.use(new RateLimit({
 
 // Handlebars
 const exphbs = require('express-handlebars')
-const hbsIntHelpers = require('./lib/helpers/handlebars')
+const hbsIntHelpers = require('./app/helpers/handlebars')
 app.set('views', [`views`])
 app.set('view engine', 'hbs')
 app.engine('hbs', exphbs({
@@ -41,7 +41,7 @@ app.engine('hbs', exphbs({
 }))
 
 // Routes
-require('./lib/routes')(app)
+require('./app/routes')(app)
 
 app.listen(config.webserver.port, (err) => {
     if (err) {
