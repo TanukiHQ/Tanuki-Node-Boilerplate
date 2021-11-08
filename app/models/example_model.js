@@ -1,15 +1,36 @@
-const mongoose = require('mongoose')
-const { Schema } = mongoose
+const { Model } = require('sequelize')
 
-const blogSchema = new Schema({
-    'title': String, // String is shorthand for {type: String}
-    'author': String,
-    'body': String,
-    'comments': [{ body: String, date: Date }],
-    'date': { type: Date, default: Date.now },
-    'hidden': Boolean,
-    'meta': {
-        'votes': Number,
-        'favs': Number,
-    },
-})
+module.exports = (sequelize, DataTypes) => {
+    class Person extends Model {}
+
+    Person.init(
+        {
+            id: {
+                allowNull: false,
+                primaryKey: true,
+                type: DataTypes.UUID,
+                defaultValue: uuid.v4(),
+            },
+
+            name: {
+                allowNull: false,
+                type: DataTypes.STRING(128),
+            },
+        },
+
+        {
+            sequelize,
+            tableName: 'Person',
+            modelName: 'Person',
+        },
+    )
+
+    // Person.associate = (models) => {
+    //     Person.hasMany(models.Company, {
+    //         onDelete: 'cascade',
+    //         foreignKey: 'uid',
+    //     })
+    // }
+
+    return Person
+}

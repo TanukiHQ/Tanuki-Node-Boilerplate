@@ -32,7 +32,8 @@
     "express-handlebars": "^5.3.2",
     "express-rate-limit": "^5.3.0",
     "handlebars": "^4.7.7",
-    "mongoose": "^5.13.3",
+    "mysql2": "^2.3.3-rc.0",
+    "sequelize": "^6.9.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
