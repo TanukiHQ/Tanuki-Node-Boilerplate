@@ -1,5 +1,5 @@
 // Load environment
-const config = require('./app/config')
+const config = require('./app/config/config.json')
 
 // Express
 const express = require('express')
@@ -43,10 +43,17 @@ app.engine('hbs', exphbs({
 // Routes
 require('./app/routes')(app)
 
-app.listen(config.webserver.port, (err) => {
-    if (err) {
-        console.log(`\x1b[1m\x1b[2m[WEBSERVER] - \x1b[0m\x1b[1m\x1b[31m\x1b[5mFAILED\x1b[0m\x1b[31m: Unable to bind to port 5000. Could there possibly be another instance alive?\x1b[0m`)
-        process.exit(1)
-    }
-    console.log(`\x1b[1m\x1b[2m[WEBSERVER] - \x1b[1m\x1b[34mOK\x1b[0m: Webserver binded on port ${config.webserver.port} | http://${config.webserver.webAddress}\x1b[0m`)
+const webserver = () => {
+    app.listen(config.webserver.port, (err) => {
+        if (err) {
+            console.log(`\x1b[1m\x1b[2m[WEBSERVER] - \x1b[0m\x1b[1m\x1b[31m\x1b[5mFAILED\x1b[0m\x1b[31m: Unable to bind to port 5000. Could there possibly be another instance alive?\x1b[0m`)
+            process.exit(1)
+        }
+        console.log(`\x1b[1m\x1b[2m[WEBSERVER] - \x1b[1m\x1b[34mOK\x1b[0m: Webserver binded on port ${config.webserver.port} | http://${config.webserver.webAddress}\x1b[0m`)
+    })
+}
+
+// Load SQLize models
+require('./app/models').sequelize.sync().then(() => {
+    webserver()
 })
