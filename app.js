@@ -23,7 +23,7 @@ const RateLimit = require('express-rate-limit')
 app.use(new RateLimit({
     windowMs: 1*60*1000,
     max: 80,
-    message: `<title>429 - ${config.app.name}</title><p style="font-family: Arial"><b>429 — Too many requests</b><br>Please try again in a moment.<p><p style="font-family: Arial"><small>Why am I seeing this: You are sending too many requests.<br>We limits the number of request a user can make to prevent DDOS attacks.</small></p>`,
+    message: `<title>429 - ${config.app.name}</title><p style="font-family: Arial"><b>429 — Too many requests</b><br>Please try again in a moment.<p><p style="font-family: Arial"><small>Why am I seeing this: You are sending too many requests.<br>We limit the number of requests a user can make to manage server load.</small></p>`,
 }))
 
 // Handlebars
