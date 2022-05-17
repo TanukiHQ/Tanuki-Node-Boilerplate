@@ -7,9 +7,25 @@ const app = express()
 app.use('/', express.static('public'))
 app.use('/third_party', express.static('third_party'))
 
-// cookieParser: Secret key for signing
+// Random generator
+const { random } = require('./app/utils/random')
+
+// Session
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const cookieParser = require('cookie-parser')
-app.use(cookieParser(config.app.secretKey))
+app.use(cookieParser(config.app.secret))
+app.use(session({
+    secret: config.app.secret,
+    resave: false,
+    saveUninitialized: false,
+    // cookie: { secure: true },
+    store: new MongoStore({ mongoUrl: `${config.services.mongo.host}/${config.services.mongo.database}${config.services.mongo.options}` }),
+    unset: 'destroy',
+    genid: (req) => {
+        return random()
+    },
+}))
 
 // BodyParser
 app.use(express.urlencoded({ extended: true }))
