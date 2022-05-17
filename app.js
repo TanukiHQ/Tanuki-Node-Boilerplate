@@ -57,6 +57,11 @@ app.engine('hbs', exphbs({
     helpers: require('./app/helpers'),
 }))
 
+// Detect debugger
+const inspector = require('inspector')
+const debugMode = inspector.url() !== undefined
+process.env['APP_DEBUG_MODE'] = debugMode ? 'true' : 'false'
+
 // Routes
 require('./app/routes')(app)
 
