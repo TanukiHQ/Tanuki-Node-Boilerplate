@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Csurf: CSRF protection
 const csrf = require('csurf')
-app.use(csrf({ cookie: true }))
+app.use(csrf({ cookie: false }))
 
 // Rate limiting
 const RateLimit = require('express-rate-limit')
