@@ -62,6 +62,10 @@ const inspector = require('inspector')
 const debugMode = inspector.url() !== undefined
 process.env['APP_DEBUG_MODE'] = debugMode ? 'true' : 'false'
 
+// Populate handlebars variable with session data
+const commonHbsVars = require('./app/middleware/common_hbs_vars')
+app.use(commonHbsVars)
+
 // Routes
 require('./app/routes')(app)
 
