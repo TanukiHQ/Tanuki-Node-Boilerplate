@@ -27,6 +27,10 @@ app.use(session({
     },
 }))
 
+// Flash
+const flash = require('connect-flash')
+app.use(flash())
+
 // BodyParser
 app.use(express.urlencoded({ extended: true }))
 
