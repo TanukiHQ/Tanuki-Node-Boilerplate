@@ -1,10 +1,18 @@
 {
     "app": {
         "name": "Tanuki Boilerplate",
-        "secretKey": "secretKey"
+        "secret": "secretKey"
     },
     "webserver": {
         "webAddress": "localhost:5000",
+        "maxRequestsPerMinute": 100,
         "port": 5000
+    },
+    "services": {
+        "mongo": {
+            "host": "mongodb://localhost:27017",
+            "database": "tanukiDb",
+            "options": "?readPreference=primary&directConnection=true&ssl=true"
+        }
     }
 }
