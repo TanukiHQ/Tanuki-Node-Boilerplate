@@ -53,7 +53,3 @@ const webserver = () => {
     })
 }
 
-// Load SQLize models
-require('./app/models').sequelize.sync().then(() => {
-    webserver()
-})
