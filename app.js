@@ -1,5 +1,5 @@
 // Load environment
-const config = require('./app/config/config.json')
+const config = require('./app/config')
 
 // Express
 const express = require('express')
