@@ -48,16 +48,13 @@ app.use(new RateLimit({
 
 // Handlebars
 const exphbs = require('express-handlebars')
-const hbsIntHelpers = require('./app/helpers/handlebars')
 app.set('views', [`views`])
 app.set('view engine', 'hbs')
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
     layoutsDir: `views/layouts`,
-    helpers: {
-        hbsIntHelpers,
-    },
+    helpers: require('./app/helpers'),
 }))
 
 // Routes
